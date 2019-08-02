@@ -1,0 +1,46 @@
+<h1>Login</h1>
+
+<div *ngIf="authorized$ != undefined && !(authorized$ | async)"
+     class="validation-message">
+  Username or password is incorrect!
+</div>
+
+<form (ngSubmit)="onLogin()" #loginForm="ngForm">
+  <div class="main-content">
+    <label>
+      Username
+      <input [(ngModel)]="username"
+             name="username"
+             type="text"
+             required
+             #usernameCtrl="ngModel">
+    </label>
+    <div *ngIf="usernameCtrl.invalid && (usernameCtrl.dirty || usernameCtrl.touched)"
+         class="validation-message">Username is required
+    </div>
+
+    <label>
+      Password
+      <input [(ngModel)]="password"
+             name="password"
+             type="password"
+             required
+             #passwordCtrl="ngModel">
+    </label>
+    <div *ngIf="passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)"
+         class="validation-message">Password is required</div>
+
+    <div class="buttons">
+      <button [disabled]="!loginForm.form.valid"
+              type="submit">
+        Sign in
+      </button>
+
+      <button
+        type="button"
+        routerLink="/register">
+        Register
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import "app/shared/variables";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.validation-message {
+  color: $validationError;
+  margin: 5px 0;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid $validationSuccess;
+}
+
+.ng-invalid:not(form):not(.ng-untouched)  {
+  border-left: 5px solid $validationError;
+}
+
+button {
+  border: 1px solid lightblue;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

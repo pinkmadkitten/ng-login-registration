@@ -1,0 +1,18 @@
+[
+  {
+    "id": 0,
+    "name": "John",
+    "login": "john2019",
+    "city": "Lviv",
+    "password": "TestPass@",
+    "contact": null
+  },
+  {
+    "id": 1,
+    "name": "Sarah",
+    "login": "2sarah",
+    "city": "Other",
+    "password": "saraH@2019",
+    "contact": "0144399"
+  }
+]

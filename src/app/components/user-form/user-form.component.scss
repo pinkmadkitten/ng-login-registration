@@ -1,0 +1,21 @@
+@import "../../shared/mixins";
+
+:host {
+  @include center-children();
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+label {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-right: 10px;
+}

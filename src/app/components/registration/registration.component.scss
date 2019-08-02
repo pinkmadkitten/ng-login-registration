@@ -1,0 +1,6 @@
+@import "../../shared/mixins";
+
+:host {
+  height: 100%;
+  @include center-children();
+}

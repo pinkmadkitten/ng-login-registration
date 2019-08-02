@@ -1,0 +1,33 @@
+@import "../../shared/mixins";
+
+:host {
+  height: 100%;
+  @include center-children();
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
+
+  & button {
+    margin-right: 10px;
+  }
+}
+
+.validation-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}

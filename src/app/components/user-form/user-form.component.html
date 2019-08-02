@@ -1,0 +1,84 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label>
+    *First and Last Name
+    <input type="text"
+           formControlName="name"
+           name="name">
+    <div *ngIf="name.invalid && (name.dirty || name.touched) && name.hasError('required')"
+         class="validation-message">
+      Name is required
+    </div>
+  </label>
+
+  <label>
+    *Username
+    <input type="text"
+           formControlName="login"
+           name="login">
+    <div *ngIf="login.invalid && (login.dirty || login.touched) && login.hasError('required')"
+         class="validation-message">
+      Username is required
+    </div>
+  </label>
+
+  <label>
+    *City
+    <select formControlName="city">
+      <option *ngFor="let cityName of cities"
+              [value]="cityName">{{cityName}}
+      </option>
+    </select>
+    <div *ngIf="city.invalid && (city.dirty || city.touched) && city.hasError('required')"
+         class="validation-message">
+      City is required
+    </div>
+  </label>
+
+  <label>
+    *Password
+    <input type="password"
+           formControlName="password"
+           name="password"
+    >
+    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div *ngIf="password.hasError('required')"
+           class="validation-message">
+        Password is required
+      </div>
+      <div *ngIf="password.hasError('minlength')"
+           class="validation-message">
+        Password must be at least 5 characters long
+      </div>
+      <div *ngIf="password.hasError('pattern')"
+           class="validation-message">
+        Password should have at least one lowercase letter, one capital letter and one symbol
+      </div>
+    </div>
+  </label>
+
+
+  <label>
+    Contact information
+    <textarea formControlName="contacts"
+              name="contacts">
+    </textarea>
+  </label>
+
+  <div class="buttons">
+    <button type="submit"
+            *ngIf="editable"
+            [disabled]="!userForm.valid">
+      {{type === 'register' ? 'Register' : 'Save'}}
+    </button>
+    <button type="button"
+            (click)="onEdit()"
+            *ngIf="!editable">
+      Edit
+    </button>
+    <button type="button"
+            (click)="onCancel()">
+      Cancel
+    </button>
+  </div>
+
+</form>

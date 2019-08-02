@@ -1,0 +1,16 @@
+@import "../../shared/mixins";
+@import "../../shared/variables";
+
+:host {
+  height: 100%;
+  @include center-children();
+}
+
+.delete-button {
+  background-color: $deleteButton;
+  color: white;
+  align-self: flex-end;
+  margin-right: 50px;
+  border: none;
+  border-radius: 5px;
+}
